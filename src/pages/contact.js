@@ -64,6 +64,9 @@ export const query = graphql`
         title
         cookTime
         id
+        content {
+          tags
+        }
         image {
           gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
         }
