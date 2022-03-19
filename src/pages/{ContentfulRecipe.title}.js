@@ -7,6 +7,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BsClockHistory, BsClock, BsPeople } from "react-icons/bs"
 import Layout from "../components/Layout"
 import slugify from "slugify"
+import SEO from "../components/SEO"
 
 const options = {
   renderMark: {
@@ -40,10 +41,12 @@ export default function RecipeTemplate({ data }) {
 
   const { tags, instructions, ingredients, tools } = content
 
+  console.log("IMAGE", image)
   const pathToImage = getImage(image)
 
   return (
     <Layout>
+      <SEO title={title} />
       <main className="page">
         <div className="recipe-page">
           <section className="recipe-hero">
@@ -136,23 +139,21 @@ export default function RecipeTemplate({ data }) {
 export const query = graphql`
   query getSingleRecipe($title: String) {
     contentfulRecipe(title: { eq: $title }) {
-      cookTime
       title
+      cookTime
       content {
         ingredients
         instructions
         tags
         tools
       }
-      featured
-      image {
-        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-        title
-      }
-      servings
-      prepTime
       description {
         raw
+      }
+      prepTime
+      servings
+      image {
+        gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
       }
     }
   }

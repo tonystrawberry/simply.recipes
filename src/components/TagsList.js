@@ -12,7 +12,7 @@ export default function TagsList({ recipes = [] }) {
         {tags.map((tag, index) => {
           const [text, value] = tag
           return (
-            <Link key={index} to={`/${text}`}>
+            <Link key={index} to={`/tags/${text}`}>
               {text} ({value})
             </Link>
           )
