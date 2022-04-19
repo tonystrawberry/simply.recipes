@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+      "connectionId": "sonarcloud",
+      "projectKey": "tonystrawberry_gatsby-recipes"
+    }
+  }
